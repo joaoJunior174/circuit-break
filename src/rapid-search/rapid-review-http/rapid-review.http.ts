@@ -9,20 +9,20 @@ export type SearchResponseType = {
   data: unknown;
 };
 
-export abstract class IRapidSearchHttp {
-  abstract search(query: string): Promise<SearchResponseType>;
+export abstract class IRapidReviewHttp {
+  abstract review(query: string): Promise<SearchResponseType>;
 }
 
 @Injectable()
-export class RapidSearchHttp implements IRapidSearchHttp {
+export class RapidReviewHttp implements IRapidReviewHttp {
   constructor(
-    @ApiHttp(RapidSearchHttp.name)
+    @ApiHttp(RapidReviewHttp.name)
     private readonly axiosInstance: AxiosInstance,
   ) {}
 
-  @CircuitBreakHandle('TESTE')
-  async search(query: string): Promise<SearchResponseType> {
-    const { data } = await this.axiosInstance.get('/search', {
+  @CircuitBreakHandle()
+  async review(query: string): Promise<SearchResponseType> {
+    const { data } = await this.axiosInstance.get('/product-reviews', {
       params: query,
     });
     return data;

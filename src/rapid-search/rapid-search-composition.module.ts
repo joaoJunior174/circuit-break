@@ -4,9 +4,10 @@ import {
   IRapidSearchCompositionService,
   RapidSearchCompositionService,
 } from './rapid-search-composition.service';
+import { RapidReviewHttpModule } from './rapid-review-http/rapid-review-http.module';
 
 @Module({
-  imports: [RapidSearchHttpModule],
+  imports: [RapidSearchHttpModule, RapidReviewHttpModule],
   providers: [
     {
       provide: IRapidSearchCompositionService,
