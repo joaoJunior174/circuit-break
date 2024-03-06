@@ -5,5 +5,5 @@ export const CIRCUIT_BREAK_STATE = {
 };
 
 export const FAILURE_THRESHOLD = 5;
-export const RESET_TIME = 50000;
+export const RESET_TIME = 10000;
 export const TIMEOUT_TIME = 5000;
